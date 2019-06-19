@@ -20,3 +20,11 @@ export const addCharacters = characters => {
 export const errorFetching = () => {
   return { type: FETCH_FAILED, payload: 'Error Fetching Data, Try again' };
 };
+
+export const fetchCharacters = () => dispatch => {
+  dispatch(fetchingCharacters());
+  axios
+    .get('https://swapi.co/api/people')
+    .then(res => dispatch(addCharacters(res.data.results)))
+    .catch(() => dispatch(errorFetching()));
+};
