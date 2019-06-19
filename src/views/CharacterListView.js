@@ -12,13 +12,13 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.isFetching) {
       return (
-        <div>
+        <div className="loading">
           <h2>Fetching Characters...</h2>
         </div>
       );
     }
     return (
-      <div className="CharactersList_wrapper">
+      <div className="charactersList_wrapper">
         <CharacterList characters={this.props.characters} />
       </div>
     );
